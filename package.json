@@ -1,0 +1,22 @@
+{
+  "name": "super_team_picker",
+  "version": "0.0.0",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.0.1",
+    "express": "~4.16.1",
+    "knex": "^0.20.4",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
