@@ -1,0 +1,48 @@
+<%- include("./partials/header") %>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title"><%= cohort.name %></h3>
+    <p class="card-text"><%= cohort.members %></p>
+    <form action="/cohorts/<%= cohort.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input class="btn btn-danger" type="submit" value="Delete">
+      <a href="/cohorts/<%= cohort.id %>/edit" class="btn btn-primary ml-2">Edit</a>
+    </form>
+    <hr>
+    <h6>Method</h6>
+    <form action="/cohorts/<%= cohort.id %>" method="GET">
+      <div class="form-check mt-1">
+        <input class="form-check-input position-static" type="radio" name="method" id="team-count" value="team-count"
+          aria-label="Team Count">
+        <label for="team-count">Team Count</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="radio" name="method" id="number-per-team"
+          value="number-per-team" aria-label="Number Per Team">
+        <label for="number-per-team">Max Number Per Team</label>
+      </div>
+      <div class="form-group mt-3">
+        <label for="quantity">Quantity</label>
+        <input name="quantity" type="number" min="1" max="100" class="form-control" id="quantity" value="1" required>
+      </div>
+      <button type="submit" class="btn btn-outline-primary btn-lg btn-block mt-1">Assign Teams</button>
+    </form>
+  </div>
+  <% if (options.method) { %>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-start align-items-center">
+      <span class="mr-4 font-weight-bold">#</span>
+      <span class="font-weight-bold">Members</span>
+    </li>
+    <% for (let team in teamList) { %>
+    <li class="list-group-item d-flex justify-content-start align-items-center">
+      <span class="mr-4 font-weight-bold"><%= team %></span>
+      <%= teamList[team].join(", ") %>
+    </li>
+  </ul>
+  <%
+    }
+  %>
+  <% } %>
+</div>
+<%- include("./partials/footer") %>

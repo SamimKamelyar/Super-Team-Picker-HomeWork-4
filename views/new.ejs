@@ -1,0 +1,22 @@
+<%- include("./partials/header") %>
+<form class="mt-4" action="/cohorts" method="POST">
+  <div class="form-group">
+    <label for="logoUrl">Logo Url</label>
+    <input type="text" class="form-control" name="logoUrl" id="logoUrl"
+      placeholder="e.g. https://www.example.com/some.png">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" id="name" placeholder="e.g. Flying Funks">
+  </div>
+  <div class="form-group">
+    <label for="members">Members</label>
+    <textarea class="form-control members-field" name="members" id="members"
+      placeholder="e.g. Jon Snow, Daenerys, Melisandre, Arya Stark" rows="3"></textarea>
+    <div class="align-right">
+
+      <button type="submit" class="btn btn-outline-primary mt-4 neww-team-button">Submit</button>
+    </div>
+  </div>
+</form>
+<%- include("./partials/footer") %>
