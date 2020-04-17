@@ -1,0 +1,25 @@
+<%- include("./partials/header") %>
+<% 
+    if (cohorts.length > 0) { 
+        for (let cohort of cohorts) { 
+%>
+<div class="card mb-4">
+  <div class="card-body">
+    <% if (cohort.logoUrl.length > 0) { %>
+    <h3 class="card-title"><img src="<%= cohort.logoUrl %>" alt="<%= cohort.name %> logo"
+        class="img-circle team-logo rounded-circle mr-3 small" height="72px" width="72px"><%= cohort.name %></h3>
+    <% } %>
+    <p class="card-text"><%= cohort.members %></p>
+    <a href="/cohorts/<%= cohort.id %>" class="btn btn-primary">Show Cohort</a>
+    <a href="/cohorts/<%= cohort.id %>/edit" class="btn btn-primary ml-2">Edit</a>
+  </div>
+</div>
+<% } } else { %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title my-4">There are no cohorts.</h5>
+    <a href="/cohorts/new" class="btn btn-primary mt-3">New Cohort</a>
+  </div>
+</div>
+<% } %>
+<%- include("./partials/footer") %>
